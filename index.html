@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b1424">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Habit Tracker | پلنر عادت‌ها</title>
+<style>
+:root{--bg:#081221;--panel:#0d1a2c;--panel2:#101f34;--line:#203550;--text:#e8efff;--muted:#91a5c5;--green:#13c6a0;--blue:#3887ff;--purple:#9460f5;--orange:#ff9e36;--pink:#f05285;--shadow:0 12px 35px #0002}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 70% 0%,#12233a 0%,var(--bg) 50%);color:var(--text);font-family:Tahoma,"Segoe UI",sans-serif;font-size:14px;line-height:1.5}button,input,select{font:inherit}button{cursor:pointer;color:inherit}button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+.app{max-width:1800px;margin:auto;padding:18px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:16px}.brand{display:flex;align-items:center;gap:12px}.brandmark{width:42px;height:42px;border-radius:14px;background:#073e3a;color:var(--green);display:grid;place-items:center;font-size:23px}.brand h1{font-size:22px;margin:0}.sub{color:var(--muted);font-size:12px}.actions{display:flex;gap:8px;flex-wrap:wrap}.btn{background:var(--panel2);border:1px solid var(--line);border-radius:11px;padding:9px 13px;transition:.15s}.btn:hover{border-color:#426384;background:#162b45}.btn.primary{background:#0b554c;border-color:#117e70}.btn.danger{color:#ff8eaa}.layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:14px;align-items:start}.maincol,.sidecol{display:grid;gap:14px;min-width:0}.panel{background:linear-gradient(145deg,#0e1b2eeb,#0b1728f2);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:16px;min-width:0}.panelhead{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}.panel h2,.panel h3{font-size:15px;margin:0}.fieldrow{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.field{background:#0a1627;border:1px solid #29415e;border-radius:10px;color:var(--text);padding:9px 10px;min-width:0}.field option{background:#0d1a2c}.monthcontrols{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.monthcontrols label{display:flex;align-items:center;gap:6px;color:var(--muted);font-size:12px}.monthcontrols select{min-width:112px}.overview{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:14px}.daily-chart{height:142px;display:flex;align-items:stretch;gap:4px;padding:10px 2px 0;overflow-x:auto}.daybar{flex:1;min-width:8px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:6px}.daybar .bartrack{height:100px;width:min(100%,17px);display:flex;align-items:flex-end;background:#14263c;border-radius:5px 5px 2px 2px;overflow:hidden}.daybar .barfill{width:100%;background:linear-gradient(0deg,#079b81,#2de0b8);border-radius:5px 5px 0 0;min-height:0}.daybar span{font-size:10px;color:var(--muted)}.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:10px}.kpi{background:#0b1829;border:1px solid #1d3049;border-radius:11px;padding:10px}.kpi b{display:block;font-size:19px;margin-bottom:2px}.kpi span{font-size:11px;color:var(--muted)}.kpi .dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-left:5px;background:var(--green)}.tablepanel{padding:12px}.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px}.habit-table{border-collapse:separate;border-spacing:0;width:100%;min-width:780px;table-layout:fixed}.habit-table th,.habit-table td{border-left:1px solid #1e334d;border-bottom:1px solid #1e334d;text-align:center;padding:7px 3px}.habit-table tr:last-child td{border-bottom:0}.habit-table th:last-child,.habit-table td:last-child{border-left:0}.habit-table th{background:#0c1a2d;color:var(--muted);font-size:11px;position:sticky;top:0;z-index:1}.habit-table .habit-col{width:155px;min-width:155px}.habit-table .day-col{width:35px}.habit-table .weekstart{border-right:2px solid #34516f}.habit-table .weekhead{font-size:12px;color:#dbe8ff;padding:10px 3px;background:#102139}.habit-table .weekhead small{display:block;color:var(--muted);font-size:10px}.habit-table .datecell{font-size:11px;padding:8px 1px 6px}.habit-table .today{color:#5ff0cf!important;background:#14352f!important}.habit-name{display:flex;align-items:center;gap:8px;text-align:right;padding:4px 5px}.habit-name .coloricon{width:27px;height:27px;border-radius:9px;display:grid;place-items:center;flex-shrink:0;background:#0d3b3b;color:var(--green)}.habit-name .name{overflow-wrap:anywhere}.habit-name .mini{font-size:10px;color:var(--muted);display:block}.checkcell{width:100%;height:29px;display:grid;place-items:center;border:0;background:transparent;padding:0}.checkmark{width:21px;height:21px;border-radius:6px;background:#1a2b42;border:1px solid #314760;color:#fff;display:grid;place-items:center;font-size:13px;transition:.12s}.checkcell.done .checkmark{background:linear-gradient(145deg,#12bd98,#078b79);border-color:#16d3ac;box-shadow:0 2px 8px #00c49a22}.checkcell:hover .checkmark{border-color:#7ba1c9}.weekfoot td{background:#0b1829;padding:10px 3px}.weekfoot .weekpercent{font-size:11px;color:#b8c9e6}.donut{--pct:0;--donut-color:var(--green);width:66px;height:66px;border-radius:50%;background:conic-gradient(var(--donut-color) calc(var(--pct)*1%),#26364d 0);display:grid;place-items:center;position:relative;margin:auto}.donut:before{content:"";position:absolute;inset:7px;background:#0c1a2c;border-radius:50%}.donut span{position:relative;font-size:12px;font-weight:bold}.chartsrow{display:grid;grid-template-columns:1.35fr 1fr;gap:14px}.weeklydonuts{display:grid;grid-template-columns:repeat(auto-fit,minmax(85px,1fr));gap:12px;text-align:center}.weeklydonuts .donut{width:72px;height:72px}.weeklydonuts .label{font-size:12px;margin-top:6px}.weeklydonuts small{display:block;color:var(--muted);font-size:10px}.monthdonutwrap{display:flex;align-items:center;justify-content:center;gap:18px;min-height:150px}.monthdonutwrap .donut{width:120px;height:120px;--donut-color:var(--blue)}.monthdonutwrap .donut:before{inset:12px}.monthdonutwrap .donut span{font-size:22px}.monthlegend{color:var(--muted);font-size:12px}.monthlegend b{display:block;color:var(--text);font-size:16px;margin:4px 0 12px}.habit-list{display:grid;gap:10px}.habit-item{border:1px solid #1f344d;border-radius:12px;padding:10px;background:#0a1728}.habit-item-top{display:flex;align-items:center;justify-content:space-between;gap:8px}.habit-item-name{display:flex;align-items:center;gap:8px;min-width:0}.habit-item-name strong{overflow-wrap:anywhere}.habit-item .percent{font-size:12px;font-weight:bold;white-space:nowrap}.progress{height:8px;background:#21334b;border-radius:99px;overflow:hidden;margin-top:9px}.progress span{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#2378ed,#19c7a2)}.habit-item-foot{display:flex;justify-content:space-between;color:var(--muted);font-size:10px;margin-top:6px}.addform{display:flex;gap:7px;margin-top:12px}.addform input{flex:1;width:100%}.habit-edit{display:flex;gap:5px}.iconbtn{width:29px;height:29px;border-radius:8px;border:1px solid #2a405a;background:#112139;color:#9db4d2;display:grid;place-items:center}.iconbtn:hover{color:#fff;border-color:#5d789b}.iconbtn.delete:hover{color:#ff7e9e;border-color:#a94762}.empty{padding:24px 12px;text-align:center;color:var(--muted);border:1px dashed #29415e;border-radius:12px}.notice{font-size:11px;color:var(--muted);margin-top:10px}.hidden{display:none!important}.fileinput{display:none}.footer{color:#7389a9;text-align:center;font-size:11px;padding:18px}
+@media(max-width:1100px){.layout{grid-template-columns:1fr}.sidecol{grid-row:1}.sidecol .habit-list{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}.overview{grid-template-columns:1fr}.chartsrow{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.app{padding:10px}.topbar{align-items:flex-start;flex-direction:column}.brand h1{font-size:19px}.panel{padding:12px}.overview,.chartsrow{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.sidecol .habit-list{grid-template-columns:1fr}.monthdonutwrap{justify-content:space-around}.habit-table .habit-col{width:130px;min-width:130px}.actions .btn{padding:8px 10px;font-size:12px}}
+
+/* Compact desktop dashboard: keep the complete overview within one screen where practical */
+@media (min-width:1101px) and (min-height:760px){
+  body{height:100vh;overflow:hidden}
+  .app{height:100vh;max-width:none;padding:10px 14px;display:flex;flex-direction:column;overflow:hidden}
+  .topbar{flex:0 0 auto;margin-bottom:8px;min-height:42px}
+  .brandmark{width:34px;height:34px;border-radius:10px}
+  .brand h1{font-size:18px}
+  .btn{padding:7px 10px;font-size:12px}
+  .layout{flex:1;min-height:0;grid-template-columns:minmax(0,1fr) 270px;gap:10px;overflow:hidden}
+  .maincol{min-height:0;grid-template-rows:auto minmax(190px,1fr) auto;gap:10px}
+  .sidecol{min-height:0;grid-template-rows:minmax(0,1fr) auto;gap:10px;overflow:auto;scrollbar-width:thin}
+  .panel{padding:11px;border-radius:13px}
+  .panelhead{margin-bottom:7px}
+  .panel h2,.panel h3{font-size:13px}
+  .sub,.notice{font-size:10px}
+  .overview{grid-template-columns:minmax(0,1fr) 250px;gap:10px}
+  .daily-chart{height:100px;padding-top:4px;gap:2px}
+  .daybar .bartrack{height:68px;width:min(100%,13px)}
+  .daybar span{font-size:9px}
+  .kpis{gap:5px;margin-top:5px}
+  .kpi{padding:6px 8px}
+  .kpi b{font-size:15px}
+  .kpi span{font-size:9px}
+  .field{padding:7px 8px}
+  .monthcontrols select{min-width:94px}
+  .tablepanel{padding:8px;display:flex;flex-direction:column;min-height:0}
+  .tablepanel .panelhead{flex:0 0 auto}
+  .tablewrap{flex:1;min-height:0;overflow:auto}
+  .habit-table{min-width:720px}
+  .habit-table th,.habit-table td{padding:3px 2px}
+  .habit-table .habit-col{width:130px;min-width:130px}
+  .habit-table .day-col{width:27px}
+  .habit-table .weekhead{padding:5px 2px;font-size:10px}
+  .habit-table .weekhead small{font-size:9px}
+  .habit-table .datecell{font-size:9px;padding:4px 1px}
+  .habit-name{gap:5px;padding:2px}
+  .habit-name .coloricon{width:20px;height:20px;border-radius:6px}
+  .habit-name .mini{font-size:9px}
+  .checkmark{width:17px;height:17px;border-radius:5px;font-size:11px}
+  .checkcell{height:22px}
+  .weekfoot td{padding:5px 2px}
+  .weekfoot .weekpercent{font-size:9px}
+  .chartsrow{gap:10px;min-height:135px}
+  .weeklydonuts{gap:5px}
+  .weeklydonuts .donut{width:48px;height:48px}
+  .weeklydonuts .donut:before{inset:5px}
+  .weeklydonuts .donut span{font-size:10px}
+  .weeklydonuts .label{font-size:10px;margin-top:3px}
+  .weeklydonuts small{font-size:8px}
+  .monthdonutwrap{min-height:100px;gap:10px}
+  .monthdonutwrap .donut{width:82px;height:82px}
+  .monthdonutwrap .donut:before{inset:8px}
+  .monthdonutwrap .donut span{font-size:16px}
+  .monthlegend{font-size:10px}
+  .monthlegend b{font-size:13px;margin:2px 0 6px}
+  .habit-list{gap:6px}
+  .habit-item{padding:7px;border-radius:9px}
+  .habit-item-name{gap:5px;font-size:11px}
+  .habit-item .percent{font-size:10px}
+  .progress{height:6px;margin-top:6px}
+  .habit-item-foot{font-size:9px;margin-top:4px}
+  .iconbtn{width:23px;height:23px;border-radius:6px}
+  .addform{margin-top:8px}
+  .footer{display:none}
+}
+@media (min-width:1101px) and (max-height:759px){
+  .app{padding:8px}
+  .panel{padding:9px}
+  .daily-chart{height:85px}
+  .daybar .bartrack{height:55px}
+  .chartsrow{min-height:120px}
+}
+
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand"><div class="brandmark">♧</div><div><h1>Habit Tracker</h1><div class="sub">پلنر هوشمند عادت‌های شخصی</div></div></div>
+    <div class="actions">
+      <button class="btn" id="exportBtn">⇩ پشتیبان‌گیری</button>
+      <button class="btn" id="importBtn">⇧ بازیابی اطلاعات</button>
+      <input class="fileinput" id="importFile" type="file" accept=".json,application/json">
+      <button class="btn" id="resetMonthBtn">↻ پاک‌کردن ثبت‌های این ماه</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <main class="maincol">
+      <section class="overview">
+        <div class="panel">
+          <div class="panelhead"><div><h2>پیشرفت روزانه در ماه</h2><div class="sub">درصد عادت‌های انجام‌شده در هر روز</div></div><span class="sub" id="dailyCaption"></span></div>
+          <div class="daily-chart" id="dailyChart"></div>
+          <div class="kpis">
+            <div class="kpi"><b id="kpiDone">۰</b><span><i class="dot"></i>روزهای دارای ثبت انجام</span></div>
+            <div class="kpi"><b id="kpiPartial">۰</b><span><i class="dot" style="background:var(--orange)"></i>روزهای با پیشرفت نسبی</span></div>
+            <div class="kpi"><b id="kpiMissed">۰</b><span><i class="dot" style="background:var(--pink)"></i>روزهای بدون انجام</span></div>
+            <div class="kpi"><b id="kpiTotal">۳۰</b><span><i class="dot" style="background:var(--blue)"></i>روزهای ماه</span></div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panelhead"><h2>انتخاب ماه و سال</h2><span>▦</span></div>
+          <div class="fieldrow monthcontrols">
+            <label>ماه <select class="field" id="monthSelect"></select></label>
+            <label>سال <select class="field" id="yearSelect"></select></label>
+          </div>
+          <div class="notice">با تغییر ماه یا سال، اطلاعات ثبت‌شده همان ماه نمایش داده می‌شود.</div>
+          <div style="margin-top:18px;border-top:1px solid var(--line);padding-top:14px">
+            <div class="sub">پیشرفت کل ماه (از تمام روزهای ماه)</div><div style="font-size:28px;font-weight:bold;margin-top:2px" id="topMonthPct">۰٪</div>
+            <div class="progress"><span id="topMonthBar" style="width:0%"></span></div>
+            <div class="notice" id="periodLabel"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel tablepanel">
+        <div class="panelhead"><div><h2>جدول عادت‌ها</h2><div class="sub">برای ثبت انجام هر عادت، خانه روز موردنظر را لمس کن. عادت‌ها کاملاً دلخواه تو هستند.</div></div><span class="sub" id="tableMonthTitle"></span></div>
+        <div class="tablewrap" id="tableWrap"></div>
+        <div class="notice">راهنما: سبز = انجام‌شده؛ خانه تیره = هنوز ثبت نشده. برای ویرایش نام عادت از فهرست سمت راست استفاده کن.</div>
+      </section>
+
+      <section class="chartsrow">
+        <div class="panel">
+          <div class="panelhead"><div><h2>پیشرفت هفتگی</h2><div class="sub">درصد انجام عادت‌ها از تمام روزهای همان هفته</div></div></div>
+          <div class="weeklydonuts" id="weeklyDonuts"></div>
+        </div>
+        <div class="panel">
+          <div class="panelhead"><div><h2>پیشرفت کل ماه</h2><div class="sub">بر اساس تمام روزهای ماه، از ابتدا تا انتها</div></div></div>
+          <div class="monthdonutwrap"><div class="donut" id="monthDonut"><span id="monthDonutPct">۰٪</span></div><div class="monthlegend"><span>ثبت‌های انجام‌شده</span><b id="monthDoneCount">۰</b><span>از کل موارد قابل ثبت در تمام روزهای ماه</span></div></div>
+        </div>
+      </section>
+    </main>
+
+    <aside class="sidecol">
+      <section class="panel">
+        <div class="panelhead"><div><h2>عملکرد هر عادت در ماه</h2><div class="sub">درصد موفقیت هر عادت</div></div><span>▥</span></div>
+        <div class="habit-list" id="habitProgress"></div>
+        <div class="addform"><input class="field" id="newHabitInput" maxlength="90" placeholder="نام عادت جدید را بنویس..."><button class="btn primary" id="addHabitBtn" aria-label="افزودن عادت">＋</button></div>
+        <div class="notice">هیچ عادت آماده‌ای وجود ندارد؛ فهرست را خودت می‌سازی.</div>
+      </section>
+      <section class="panel">
+        <div class="panelhead"><div><h2>اطلاعات و پشتیبان</h2><div class="sub">داده‌ها روی همین دستگاه ذخیره می‌شوند.</div></div><span>♧</span></div>
+        <button class="btn" id="exportBtn2" style="width:100%">⇩ ذخیره فایل پشتیبان</button>
+        <button class="btn" id="importBtn2" style="width:100%;margin-top:8px">⇧ بازیابی از فایل</button>
+        <div class="notice">برای اطمینان از نگهداری بلندمدت، هر چند وقت یک‌بار فایل پشتیبان JSON بگیر. داده‌ها به حساب کاربری یا سرور ارسال نمی‌شوند.</div>
+        <div class="notice" id="storageStatus"></div>
+      </section>
+    </aside>
+  </div>
+  <div class="footer">پلنر شخصی عادت‌ها · تقویم شمسی · ذخیره‌سازی محلی در مرورگر</div>
+</div>
+<script>
+"use strict";
+const MONTHS=['فروردین','اردیبهشت','خرداد','تیر','مرداد','شهریور','مهر','آبان','آذر','دی','بهمن','اسفند'];
+const WEEKDAYS=['شنبه','یکشنبه','دوشنبه','سه‌شنبه','چهارشنبه','پنجشنبه','جمعه'];
+const COLORS=['#13c6a0','#3887ff','#9460f5','#ff9e36','#f05285','#29b8d9','#b1d84b'];
+const STORE='habit-tracker-fa-v1';
+const $=id=>document.getElementById(id);
+const fa=n=>Number(n).toLocaleString('fa-IR');
+function div(a,b){return Math.floor(a/b)}
+function mod(a,b){return a-div(a,b)*b}
+// Gregorian -> Jalali, arithmetic algorithm
+function g2j(gy,gm,gd){
+ let gdm=[0,31,59,90,120,151,181,212,243,273,304,334],gy2=gm>2?gy+1:gy;
+ let days=355666+365*gy+div(gy2+3,4)-div(gy2+99,100)+div(gy2+399,400)+gd+gdm[gm-1];
+ let jy=-1595+33*div(days,12053);days%=12053;jy+=4*div(days,1461);days%=1461;
+ if(days>365){jy+=div(days-1,365);days=(days-1)%365}
+ let jm, jd;
+ if(days<186){jm=1+div(days,31);jd=1+mod(days,31)}
+ else{jm=7+div(days-186,30);jd=1+mod(days-186,30)}
+ return [jy,jm,jd];
+}
+function j2g(jy,jm,jd){
+ jy+=1595;let days=-355668+365*jy+div(jy,33)*8+div(mod(jy,33)+3,4)+jd;
+ if(jm<7)days+=(jm-1)*31;else days+=186+(jm-7)*30;
+ let gy=400*div(days,146097);days%=146097;
+ if(days>36524){gy+=100*div(--days,36524);days%=36524;if(days>=365)days++}
+ gy+=4*div(days,1461);days%=1461;
+ if(days>365){gy+=div(days-1,365);days=(days-1)%365}
+ let gd=days+1, sal_a=[0,31,(gy%4===0&&gy%100!==0)||gy%400===0?29:28,31,30,31,30,31,31,30,31,30,31],gm;
+ for(gm=1;gm<=12&&gd>sal_a[gm];gm++)gd-=sal_a[gm];
+ return [gy,gm,gd];
+}
+function jLeap(jy){return g2j(...j2g(jy,12,29))[0]!==jy}
+function jMonthDays(y,m){if(m<=6)return 31;if(m<=11)return 30;return jLeap(y)?30:29}
+function jDateToday(){let d=new Date();return g2j(d.getFullYear(),d.getMonth()+1,d.getDate())}
+function jWeekday(y,m,d){let [gy,gm,gd]=j2g(y,m,d);return mod(new Date(gy,gm-1,gd).getDay()+1,7)} // Sat=0
+function keyMonth(y,m){return `${y}-${String(m).padStart(2,'0')}`}
+function readStore(){try{let raw=localStorage.getItem(STORE);if(raw){let x=JSON.parse(raw);if(x&&Array.isArray(x.habits)&&x.months)return x}}catch(e){}return {habits:[],months:{}}}
+let state=readStore();
+const todayJ=jDateToday();let viewYear=todayJ[0],viewMonth=todayJ[1];
+function save(){try{localStorage.setItem(STORE,JSON.stringify(state));$('storageStatus').textContent='ذخیره خودکار فعال است · '+fa(state.habits.length)+' عادت';return true}catch(e){$('storageStatus').textContent='ذخیره مرورگر در دسترس نیست؛ لطفاً فایل پشتیبان بگیر.';return false}}
+function monthData(y=viewYear,m=viewMonth){let k=keyMonth(y,m);if(!state.months[k])state.months[k]={};return state.months[k]}
+function isDone(hid,day,y=viewYear,m=viewMonth){return !!(state.months[keyMonth(y,m)]&&state.months[keyMonth(y,m)][hid]&&state.months[keyMonth(y,m)][hid][day])}
+function setDone(hid,day,val){let md=monthData();if(!md[hid])md[hid]={};if(val)md[hid][day]=true;else delete md[hid][day];save();renderAll()}
+function currentDayLimit(){if(viewYear<todayJ[0]||(viewYear===todayJ[0]&&viewMonth<todayJ[1]))return jMonthDays(viewYear,viewMonth);if(viewYear===todayJ[0]&&viewMonth===todayJ[1])return todayJ[2];return 0}
+// Progress percentages intentionally use the FULL calendar period, not only elapsed days.
+function pctForHabit(hid){let totalDays=jMonthDays(viewYear,viewMonth);if(!totalDays)return 0;let n=0;for(let d=1;d<=totalDays;d++)if(isDone(hid,d))n++;return Math.round(n/totalDays*100)}
+function allStats(days){let limit=jMonthDays(viewYear,viewMonth), total=state.habits.length*limit, done=0;for(let h of state.habits)for(let d=1;d<=limit;d++)if(isDone(h.id,d))done++;return {limit,total,done,pct:total?Math.round(done/total*100):0}}
+function daysInWeeks(y,m){let n=jMonthDays(y,m),offset=jWeekday(y,m,1),weeks=[],day=1;while(day<=n){let arr=[];for(let i=0;i<7;i++){let d=weeks.length===0?i-offset+1:day; if(weeks.length===0){if(d<1||d>n)arr.push(null);else arr.push(d)}else{if(day<=n){arr.push(day);day++}else arr.push(null)} } if(weeks.length===0)day=arr.filter(Boolean).length+1;weeks.push(arr);if(weeks.length===1){day=1;for(let i=0;i<7-offset;i++)day++} } 
+ // robust grouping by actual weekday slots
+ weeks=[];let arr=Array(7).fill(null);for(let d=1;d<=n;d++){let w=jWeekday(y,m,d);arr[w]=d;if(w===6||d===n){weeks.push(arr);arr=Array(7).fill(null)}}return weeks}
+function weeksData(){let n=jMonthDays(viewYear,viewMonth),offset=jWeekday(viewYear,viewMonth,1),weeks=[];for(let d=1;d<=n;d++){let idx=Math.floor((offset+d-1)/7);if(!weeks[idx])weeks[idx]=[];weeks[idx].push(d)}return weeks}
+function weekPct(days){let total=days.length*state.habits.length,done=0;for(let h of state.habits)for(let d of days)if(isDone(h.id,d))done++;return total?Math.round(done/total*100):0}
+function renderMonthControls(){
+ const ms=$('monthSelect'),ys=$('yearSelect');ms.innerHTML=MONTHS.map((m,i)=>`<option value="${i+1}">${m}</option>`).join('');
+ const years=new Set([todayJ[0]-3,todayJ[0]-2,todayJ[0]-1,todayJ[0],todayJ[0]+1,todayJ[0]+2,todayJ[0]+3,viewYear]);ys.innerHTML=[...years].sort((a,b)=>a-b).map(y=>`<option value="${y}">${fa(y)}</option>`).join('');
+ ms.value=String(viewMonth);ys.value=String(viewYear);
+}
+function renderDaily(){
+ let n=jMonthDays(viewYear,viewMonth);$('dailyChart').innerHTML='';for(let d=1;d<=n;d++){let p=0;if(state.habits.length){let count=state.habits.filter(h=>isDone(h.id,d)).length;p=Math.round(count/state.habits.length*100)}let el=document.createElement('div');el.className='daybar';el.title=`روز ${fa(d)}: ${fa(p)}٪`;el.innerHTML=`<div class="bartrack"><div class="barfill" style="height:${p}%"></div></div><span>${fa(d)}</span>`;$('dailyChart').appendChild(el)}
+ $('dailyCaption').textContent=`${fa(n)} روز`;let s=allStats();let fullDays=0,partial=0,missed=0;for(let d=1;d<=s.limit;d++){let count=state.habits.filter(h=>isDone(h.id,d)).length;if(count===0)missed++;else if(count===state.habits.length)fullDays++;else partial++}
+ $('kpiDone').textContent=fa(fullDays);$('kpiPartial').textContent=fa(partial);$('kpiMissed').textContent=fa(missed);$('kpiTotal').textContent=fa(n);$('topMonthPct').textContent=fa(s.pct)+'٪';$('topMonthBar').style.width=s.pct+'%';$('periodLabel').textContent=`${MONTHS[viewMonth-1]} ${fa(viewYear)} · ${fa(s.done)} از ${fa(s.total)} ثبت انجام‌شده`;
+}
+function renderTable(){
+ const n=jMonthDays(viewYear,viewMonth),weeks=weeksData(),todaySame=viewYear===todayJ[0]&&viewMonth===todayJ[1];
+ let html='<table class="habit-table"><thead><tr><th class="habit-col" rowspan="2">عادت‌ها</th>';
+ weeks.forEach((days,i)=>{let first=days[0],last=days[days.length-1];html+=`<th class="weekhead" colspan="${days.length}">هفته ${fa(i+1)}<small>${fa(first)} تا ${fa(last)} ${MONTHS[viewMonth-1]}</small></th>`});
+ html+='</tr><tr>';
+ for(let d=1;d<=n;d++){let wd=jWeekday(viewYear,viewMonth,d),classes='datecell'+(todaySame&&d===todayJ[2]?' today':'')+(wd===0?' weekstart':'');html+=`<th class="${classes}"><div>${WEEKDAYS[wd][0]}</div><div>${fa(d)}</div></th>`}
+ html+='</tr></thead><tbody>';
+ if(!state.habits.length){html+=`<tr><td colspan="${n+1}"><div class="empty">هنوز عادتی اضافه نکرده‌ای.<br>از بخش «عملکرد هر عادت در ماه» یک عادت جدید بساز.</div></td></tr>`}
+ state.habits.forEach((h,idx)=>{html+=`<tr><td class="habit-col"><div class="habit-name"><span class="coloricon" style="background:${COLORS[idx%COLORS.length]}22;color:${COLORS[idx%COLORS.length]}">●</span><div class="name">${esc(h.name)}<span class="mini">${fa(pctForHabit(h.id))}٪ این ماه</span></div></div></td>`;for(let d=1;d<=n;d++){let done=isDone(h.id,d),wd=jWeekday(viewYear,viewMonth,d),disabled=d>currentDayLimit();html+=`<td class="${wd===0?'weekstart':''}"><button class="checkcell ${done?'done':''}" data-h="${h.id}" data-d="${d}" aria-label="${esc(h.name)}، روز ${fa(d)}، ${done?'انجام شده':'انجام نشده'}" ${disabled?'disabled title="این روز هنوز نرسیده است"':''}><span class="checkmark">${done?'✓':''}</span></button></td>`}html+='</tr>'});
+ html+='<tr class="weekfoot"><td class="habit-col"><b>درصد انجام هفتگی</b></td>';for(let d=1;d<=n;d++){let start=1;while(start<=d&&Math.floor((jWeekday(viewYear,viewMonth,1)+start-1)/7)!==Math.floor((jWeekday(viewYear,viewMonth,1)+d-1)/7))start++;let days=weeks.find(w=>w.includes(d))||[];if(days[0]===d){html+=`<td colspan="${days.length}"><div class="weekpercent">${fa(weekPct(days))}٪</div><div class="progress" style="height:5px;margin-top:4px"><span style="width:${weekPct(days)}%"></span></div></td>`}}
+ html+='</tr></tbody></table>';$('tableWrap').innerHTML=html;
+ $('tableWrap').querySelectorAll('.checkcell').forEach(btn=>btn.addEventListener('click',()=>setDone(btn.dataset.h,Number(btn.dataset.d),!isDone(btn.dataset.h,Number(btn.dataset.d)))));
+ $('tableMonthTitle').textContent=`${MONTHS[viewMonth-1]} ${fa(viewYear)}`;
+}
+function renderDonuts(){
+ let weeks=weeksData();$('weeklyDonuts').innerHTML=weeks.map((days,i)=>{let p=weekPct(days),color=COLORS[i%COLORS.length];return `<div><div class="donut" style="--pct:${p};--donut-color:${color}"><span>${fa(p)+'٪'}</span></div><div class="label">هفته ${fa(i+1)}</div><small>${fa(days[0])} تا ${fa(days[days.length-1])} ${MONTHS[viewMonth-1]}</small></div>`}).join('');
+ let s=allStats();$('monthDonut').style.setProperty('--pct',s.pct);$('monthDonutPct').textContent=fa(s.pct)+'٪';$('monthDoneCount').textContent=fa(s.done)+' / '+fa(s.total);
+}
+function renderHabitProgress(){
+ let root=$('habitProgress');if(!state.habits.length){root.innerHTML='<div class="empty">هنوز عادتی ثبت نشده است.</div>';return}
+ root.innerHTML=state.habits.map((h,i)=>{let p=pctForHabit(h.id),limit=currentDayLimit(),count=0;for(let d=1;d<=limit;d++)if(isDone(h.id,d))count++;return `<div class="habit-item"><div class="habit-item-top"><div class="habit-item-name"><span style="color:${COLORS[i%COLORS.length]}">●</span><strong>${esc(h.name)}</strong></div><span class="percent">${fa(p)}٪</span></div><div class="progress"><span style="width:${p}%;background:linear-gradient(90deg,${COLORS[i%COLORS.length]},${COLORS[(i+1)%COLORS.length]})"></span></div><div class="habit-item-foot"><span>${fa(count)} بار انجام شده</span><div class="habit-edit"><button class="iconbtn rename" data-id="${h.id}" title="تغییر نام">✎</button><button class="iconbtn delete" data-id="${h.id}" title="حذف عادت">×</button></div></div></div>`}).join('');
+ root.querySelectorAll('.rename').forEach(b=>b.addEventListener('click',()=>{let h=state.habits.find(x=>x.id===b.dataset.id);let name=prompt('نام جدید عادت را وارد کن:',h.name);if(name!==null&&name.trim()){h.name=name.trim();save();renderAll()}}));
+ root.querySelectorAll('.delete').forEach(b=>b.addEventListener('click',()=>{let h=state.habits.find(x=>x.id===b.dataset.id);if(!confirm(`عادت «${h.name}» و تمام ثبت‌های مربوط به آن حذف شود؟`))return;state.habits=state.habits.filter(x=>x.id!==h.id);Object.values(state.months).forEach(m=>delete m[h.id]);save();renderAll()}));
+}
+function renderAll(){renderMonthControls();renderDaily();renderTable();renderDonuts();renderHabitProgress();save()}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function addHabit(){let input=$('newHabitInput'),name=input.value.trim();if(!name){input.focus();return}if(state.habits.some(h=>h.name.toLocaleLowerCase()===name.toLocaleLowerCase())){alert('این عادت قبلاً اضافه شده است.');return}state.habits.push({id:'h'+Date.now().toString(36)+Math.random().toString(36).slice(2,6),name});input.value='';save();renderAll();input.focus()}
+$('addHabitBtn').addEventListener('click',addHabit);$('newHabitInput').addEventListener('keydown',e=>{if(e.key==='Enter')addHabit()});
+$('monthSelect').addEventListener('change',e=>{viewMonth=Number(e.target.value);renderAll()});$('yearSelect').addEventListener('change',e=>{viewYear=Number(e.target.value);renderAll()});
+function exportData(){let data={app:'Habit Tracker Persian',version:1,exportedAt:new Date().toISOString(),habits:state.habits,months:state.months};let blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`habit-tracker-${viewYear}-${String(viewMonth).padStart(2,'0')}-backup.json`;document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url)}
+function importData(file){if(!file)return;let reader=new FileReader();reader.onload=()=>{try{let data=JSON.parse(reader.result);if(!data||!Array.isArray(data.habits)||!data.months||typeof data.months!=='object')throw Error('invalid');if(!confirm('اطلاعات فعلی با محتوای فایل پشتیبان جایگزین شود؟'))return;state={habits:data.habits,months:data.months};save();renderAll();alert('اطلاعات با موفقیت بازیابی شد.')}catch(e){alert('فایل پشتیبان معتبر نیست یا قابل خواندن نیست.')}};reader.readAsText(file)}
+['exportBtn','exportBtn2'].forEach(id=>$(id).addEventListener('click',exportData));['importBtn','importBtn2'].forEach(id=>$(id).addEventListener('click',()=>$('importFile').click()));$('importFile').addEventListener('change',e=>{importData(e.target.files[0]);e.target.value=''});
+$('resetMonthBtn').addEventListener('click',()=>{if(!confirm(`تمام ثبت‌های ${MONTHS[viewMonth-1]} ${fa(viewYear)} پاک شود؟ نام عادت‌ها حذف نمی‌شود.`))return;delete state.months[keyMonth(viewYear,viewMonth)];save();renderAll()});
+renderAll();
+</script>
+
+<script>
+if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').catch(() => {});
+  });
+}
+</script>
+
+</body>
+</html>
